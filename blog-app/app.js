@@ -11,6 +11,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
+const PORT = process.env.PORT;
+
 var blogSchema = new mongoose.Schema({
   title: String,
   body: String,
@@ -92,6 +94,6 @@ app.delete("/blogs/:id",function(req,res){
   })
 })
 
-app.listen(3010, function(){
+app.listen(PORT, function(){
   console.log("server is listening ; port 3010");
 });
